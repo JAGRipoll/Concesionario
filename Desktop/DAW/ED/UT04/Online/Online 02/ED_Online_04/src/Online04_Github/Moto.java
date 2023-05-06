@@ -8,7 +8,25 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 /**
- *
+ * Esta clase nos sirve para implementar objetos #Moto que se extiende de 
+ * la clase @Vehiculo ademas de las variables propias de la clase para guardar
+ * la información inclye metodos propios y heredados para leer por pantalla los
+ * datos de objeto #Moto, imprimir así como metodos para escribir los datos en 
+ * un archivo o realizar ventas del obejto.
+ * 
+ * En esta caso #Moto solo esta compuesta de componentes definidos en la clase
+ * @Vehiculo, por lo que no incorpora datos propios, además aplica los métodos 
+ * heredados de la clase padre.
+ * Si añade dos metodos propios que se utilizan para comprobar el destino del 
+ * fichero de texto y la lectura del mismo estos metos son:
+ * <ul>
+ *  <li>#compruebaEscritura</li>
+ *  <li>#pathLectura</li>
+ * </ul>
+ * 
+ * En esta clase tambien de declara el arrayList @see que contendra los objetos coche
+ * durante la ejecución del programa, estos datos se pueden guradar y leer desde
+ * un archivo definido por el usuario para la ejecucion del programa.
  * @author Ripoll
  */
 public class Moto extends Vehiculo {
@@ -17,11 +35,19 @@ public class Moto extends Vehiculo {
   public Moto (){
       super();
   }
+  /**
+   * Este metodo es un metodo que incluye vender una #Moto
+   */
     @Override
     public void vender(){
         System.out.println("Hemos vendidio la moto.");
     }
     // Metodo que lee los elementos de una moto
+    /**
+     * Con este metodo lo que hacemos es pedir los datos que van a componer 
+     * nuestro objeto coche, de este modo llamaremos a este metodo para 
+     * cada vez que necesitemos crear un objeto #Moto
+     */
     @Override
     public void leer() {
       System.out.print("Introduzca la marca de la moto: ");
@@ -37,7 +63,11 @@ public class Moto extends Vehiculo {
       System.out.print("Indique el kilometraje de la moto: ");
       km = sc.nextDouble();
     }
-    
+    /**
+     * Utilizamos este metodo para imprimir es obejto Moto#Moto()
+     * @return , retorna todo los elementos del obejeto para ser escritos en el 
+     * archivo.
+     */
     @Override
     public String datosParaGuardar(){
 	String datos ="";
@@ -53,6 +83,10 @@ public class Moto extends Vehiculo {
     }
  
     // Metod para escribir los datos de motos en el fichero
+    /**
+     * Este metodo escribte los datos del arrayList en un fichero de texto,
+     * usando una linea para cada objeto #Moto del arrayList
+     */
     @Override
     public void escribir() {
         Scanner sc = new Scanner(System.in);
@@ -106,6 +140,11 @@ public class Moto extends Vehiculo {
     }
     
     // Metodo para leer los datos del fichero
+    /**
+     * Este metodo se implementa para hacer la lectura del fichero pasando los 
+     * datos a un arrayList de manera que sean cargado en el programa para su 
+     * uso de un objeto @see Moto#Moto(String, String, String, String, String, String)
+     */
     @Override
     public void leerFichero() {
         Scanner sc = new Scanner(System.in);
@@ -171,6 +210,14 @@ public class Moto extends Vehiculo {
     }
     
     //Metodo para comprobar el path
+    /**
+     * Este metodo solicita un path donde almacenar la infomracion de #Moto
+     * @param f es el parametro solicitado y se corresponde con el archivo de destino,
+     * el metodo comprueba si existe el destino, si es una carpeta o un archivo, en caso 
+     * de existir comprueba que el archivo se puede leer, si no existe crea el archivo
+     * una vez realizadas las comprobaciones mediante
+     * @return , devuelve un valor true indicando que el archivo existe y se puede leer.
+     */
     public static boolean compruebaEscritura(File f) {
         boolean result = false;
 
@@ -204,6 +251,13 @@ public class Moto extends Vehiculo {
         return result;
     }
     
+    /**
+     * Al igual que el anteriro este metodo realiza la comprobación del parametro
+     * @param f introducido comprueba si el path es una carpeta, o un archvo y
+     * si es posible leer de el tra lo cual devuelve
+     * @return , con valor true indicando que el archivo existe y se puede leer,
+     * si no existe devuelve un mensaje y @return con valor false.
+     */
     public static boolean pathLectura(File f) {
         boolean result = false;
 

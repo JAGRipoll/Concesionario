@@ -9,7 +9,27 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- *
+ * Esta el la clase principal del program donde se encuentra el metodo main
+ * en esta clase mediante la impresión de un menú se ofrece al usuario los 
+ * distintos procesos que puede realizar con el programa:
+ * <ol>
+ * <li>Añadir coche al fichero</li>
+ * <li>Leer datos de coche desde el fichero.</li>
+ * <li>Añadir motos al fichero</li>
+ * <li>Leer datos de motos desde el fichero</li>
+ * <li>Vender Coches</li>
+ * <li>Vemnder Motos</li>
+ * <li>Salir</li>
+ * </ol>
+ * 
+ * Mediante el uso de un switch se realiza el menú que hara llamadas a los
+ * diferentes metodos de las diferentes clases en funcion de la opcion 
+ * seleccionada.
+ * 
+ * En esta clase se crean los arrayList de @Coche y @Moto para la ejecución
+ * del programa, estos arrayList contendran la información de los objetos creados
+ * que será volcada y leidad desde los ficheros indicados por el usuario.
+ * 
  * @author Ripoll
  */
 public class Ejercicio_8 {

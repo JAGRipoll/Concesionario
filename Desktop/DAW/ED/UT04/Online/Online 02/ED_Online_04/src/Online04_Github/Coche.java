@@ -8,7 +8,26 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 /**
- *
+ * Esta clase nos sirve para implementar objetos #Coche que se extiende de 
+ * la clase @Vehiculo ademas de las variables propias de la clase para guardar
+ * la información inclye metodos propios y heredados para leer por pantalla los
+ * datos de objeto #Moto, imprimir así como metodos para escribir los datos en 
+ * un archivo o realizar ventas del obejto.
+ * 
+ * El objeto @Coche además de los propios del @Vehiculo incorpora datos propios 
+ * de su claso en concreto:
+ * <ul>
+ * <li>numeroPuerta</li>
+ * <li>numeroPlazas</li>
+ * </ul>
+ * 
+ * Además de implementar los metodos heredadod de @Vehiculo tambien implementa
+ * dos metodos propios de la clase que son:
+ *  <ul>
+ *  <li>#compruebaEscritura</li>
+ *  <li>#pathLectura</li>
+ * </ul>
+ * 
  * @author Ripoll
  */
 public class Coche extends Vehiculo {
@@ -25,7 +44,12 @@ public class Coche extends Vehiculo {
         super();
     
     }
-
+    /**
+     * Este metodo es el constructos del objeto #Coche
+     * @param numeroDePuertas, describe el numero de puertas de #Coche,
+     * @param numeroDePlazas, describe el número de plazas del #Vehiculo
+     * @param combustible, describe el tipo de combustible que usa #Coche.
+     */
     public Coche(int numeroDePuertas, int numeroDePlazas, String combustible) {
         this.numeroDePuertas = numeroDePuertas;
         this.numeroDePlazas = numeroDePlazas;
@@ -35,6 +59,10 @@ public class Coche extends Vehiculo {
     public int numeroDePuertas(){
         return numeroDePuertas;
     }
+    /**
+     * Este metodo sirve para definir el número de puertas del objeto #Coche
+     * @param numeroDePuertas 
+     */
     public void setNumeroDePuertas(int numeroDePuertas){
         this.numeroDePuertas = numeroDePuertas;
     }
@@ -42,14 +70,25 @@ public class Coche extends Vehiculo {
     public int numeroDePlazas(){
         return numeroDePlazas;
     }
+    /**
+     * Este metodo sirve para aplicar el número de plaza al obejto #Coche
+     * @param numeroDePlazas 
+     */
     public void setNumeroDePlazas(int numeroDePlazas){
         this.numeroDePlazas = numeroDePlazas;
     }
-    
+    /**
+     * Este metodo describe el proceso de venta de un #Coche
+     */
     @Override
     public void vender(){
         System.out.println("Hemos vendidio el coche.");
     }
+    /**
+     * Con este metodo lo que hacemos es pedir los datos que van a componer 
+     * nuestro objeto coche, de este modo llamaremos a este metodo para 
+     * cada vez que necesitemos crear un objeto #Coche
+     */
     @Override
     public void leer() {
         System.out.println("Ingrese los datos del coche:");
@@ -70,6 +109,11 @@ public class Coche extends Vehiculo {
     }
     
     // Modificar para ajustar a proyecto
+    /**
+     * Utilizamos este metodo para imprimir es obejto Coche#Coche
+     * @return , retorna todo los elementos del obejeto para ser escritos en el 
+     * archivo.
+     */
     @Override
     public String datosParaGuardar(){
 	String datos ="";
@@ -85,6 +129,10 @@ public class Coche extends Vehiculo {
 	return datos;
     }
     // Metodo para escribir los datos del coche en un fichero
+     /**
+     * Este metodo escribte los datos del arrayList en un fichero de texto,
+     * usando una linea para cada objeto #Coche del arrayList
+     */
      @Override
        public void escribir() {
         Scanner sc = new Scanner(System.in);
@@ -135,6 +183,11 @@ public class Coche extends Vehiculo {
     }
     
     // Metodo que carga los datos del fichero en arrayList de coches
+      /**
+     * Este metodo se implementa para hacer la lectura del fichero pasando los 
+     * datos a un arrayList de manera que sean cargado en el programa para su 
+     * uso de un objeto @see Coche#Coche(String, String, String, String, String, String)
+     */
     @Override
     public void leerFichero() {
         Scanner sc = new Scanner(System.in);
@@ -200,6 +253,14 @@ public class Coche extends Vehiculo {
     }
      
     // Metodo que compruevba el Path 
+    /**
+     * Este metodo solicita un path donde almacenar la infomracion de #Coche
+     * @param f es el parametro solicitado y se corresponde con el archivo de destino,
+     * el metodo comprueba si existe el destino, si es una carpeta o un archivo, en caso 
+     * de existir comprueba que el archivo se puede leer, si no existe crea el archivo
+     * una vez realizadas las comprobaciones mediante
+     * @return , devuelve un valor true indicando que el archivo existe y se puede leer.
+     */
     public static boolean compruebaEscritura(File f) {
         boolean result = false;
 
@@ -232,7 +293,13 @@ public class Coche extends Vehiculo {
 
         return result;
     }
-    
+    /**
+     * Al igual que el anteriro este metodo realiza la comprobación del parametro
+     * @param f introducido comprueba si el path es una carpeta, o un archvo y
+     * si es posible leer de el tra lo cual devuelve
+     * @return , con valor true indicando que el archivo existe y se puede leer,
+     * si no existe devuelve un mensaje y @return con valor false.
+     */
      public static boolean pathLectura(File f) {
         boolean result = false;
 
